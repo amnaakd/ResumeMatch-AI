@@ -3,6 +3,7 @@ from pathlib import Path
 import shutil
 
 from app.services.resume_parser import extract_text_from_pdf
+from app.utils.file_validator import validate_file
 
 router = APIRouter(
     prefix="/api/upload",
@@ -16,6 +17,9 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 @router.post("/resume")
 async def upload_resume(file: UploadFile = File(...)):
+    # ✅ Validate the uploaded file first
+    validate_file(file)
+
     file_path = UPLOAD_DIR / file.filename
 
     with file_path.open("wb") as buffer:
