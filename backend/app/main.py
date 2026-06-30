@@ -2,15 +2,17 @@ from fastapi import FastAPI
 from app.api.upload import router as upload_router
 from app.api.job import router as job_router
 from app.api.match import router as match_router
+from app.config.settings import settings
+
 app = FastAPI(
-    title="ResumeMatch AI",
-    version="1.0.0",
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
 )
 
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to ResumeMatch AI 🚀"}
+    return {"message": "Welcome to ResumeMatch AI"}
 
 
 @app.get("/health")
