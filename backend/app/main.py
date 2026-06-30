@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.api.upload import router as upload_router
-
+from app.api.job import router as job_router
 app = FastAPI(
     title="ResumeMatch AI",
     version="1.0.0",
@@ -18,3 +18,4 @@ def health():
 
 
 app.include_router(upload_router)
+app.include_router(job_router)

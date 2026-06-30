@@ -1,0 +1,13 @@
+AI Engineer
+
+Requirements:
+
+- Python
+- FastAPI
+- Docker
+- Git
+- Machine Learning
+- TensorFlow
+- REST APIs
+- SQL
+- Problem Solving
